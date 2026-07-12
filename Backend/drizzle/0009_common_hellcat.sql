@@ -1,0 +1,1 @@
+ALTER TABLE "profile" ADD COLUMN "total_co2_saved" double precision DEFAULT 0 NOT NULL;

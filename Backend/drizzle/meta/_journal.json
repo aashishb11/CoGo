@@ -1,0 +1,146 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1774094765348,
+      "tag": "0000_mighty_impossible_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1774549880988,
+      "tag": "0001_wild_jazinda",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1774552561542,
+      "tag": "0002_material_shocker",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1774561443479,
+      "tag": "0003_equal_iron_patriot",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1776963835530,
+      "tag": "0004_optimal_clint_barton",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1776965218819,
+      "tag": "0005_burly_titanium_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1776956299659,
+      "tag": "0006_cooing_kang",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1777044730611,
+      "tag": "0007_serious_vertigo",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1777303125004,
+      "tag": "0008_unique_reaper",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1777321630201,
+      "tag": "0009_common_hellcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1777456588269,
+      "tag": "0010_fast_wilson_fisk",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1777542995734,
+      "tag": "0011_large_kang",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1777557763154,
+      "tag": "0012_wakeful_tarantula",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1778776315736,
+      "tag": "0013_spotty_hellcat",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1779009516349,
+      "tag": "0014_heavy_eddie_brock",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1779010187581,
+      "tag": "0015_left_the_phantom",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1779299693646,
+      "tag": "0016_unusual_captain_universe",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1779639510997,
+      "tag": "0017_spooky_robbie_robertson",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1779671891452,
+      "tag": "0018_hesitant_namora",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1779679415912,
+      "tag": "0019_sharp_pet_avengers",
+      "breakpoints": true
+    }
+  ]
+}

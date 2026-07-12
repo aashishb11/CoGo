@@ -1,0 +1,44 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction TB
+  class users {
+    uuid id
+    text email
+    text agenda_feed_token
+  }
+  class sessions {
+    uuid id
+    uuid user_id
+    text token
+    timestamp expires_at
+  }
+  class accounts {
+    uuid id
+    uuid user_id
+    text provider_id
+    text account_id
+    text access_token
+    text refresh_token
+  }
+  class push_subscriptions {
+    uuid id
+    uuid user_id
+    text endpoint
+    jsonb keys
+    jsonb settings
+    timestamp created_at
+    timestamp updated_at
+  }
+  class verification {
+    uuid id
+    text identifier
+    text value
+    timestamp expires_at
+  }
+
+  users "1" --> "0..*" sessions : user_id
+  users "1" --> "0..*" accounts : user_id
+  users "1" --> "0..*" push_subscriptions : user_id

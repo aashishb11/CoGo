@@ -1,0 +1,22 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class User {
+    +id: String
+  }
+  class Rating {
+    +id: String
+    +score: Integer
+    +comment: String
+    +createdAt: DateTime
+  }
+  class Ride {
+    +id: String
+  }
+
+  User "1" --> "0..*" Rating : rates
+  User "1" --> "0..*" Rating : ratedBy
+  Ride "1" --> "0..*" Rating : context

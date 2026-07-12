@@ -1,0 +1,22 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class Trip {
+    <<abstract>>
+  }
+  class TripChatThread {
+    +id: String
+    +createdAt: DateTime
+  }
+  class ChatMessage {
+    +id: String
+    +body: String
+    +createdAt: DateTime
+    +deletedAt: DateTime
+  }
+
+  Trip "1" --> "0..*" TripChatThread : hosts
+  TripChatThread "1" --> "0..*" ChatMessage : contains

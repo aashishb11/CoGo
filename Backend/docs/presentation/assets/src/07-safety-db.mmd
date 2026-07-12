@@ -1,0 +1,31 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class trusted_contacts {
+    uuid user_id
+    text name
+    text email
+    timestamp created_at
+    timestamp updated_at
+  }
+  class users {
+    uuid id
+  }
+  class safety_incidents {
+    uuid id
+    uuid ride_id
+    uuid reporter_id
+    text category
+    text note
+    timestamp created_at
+  }
+  class rides {
+    uuid id
+  }
+
+  users "1" --> "0..1" trusted_contacts : user_id
+  users "1" --> "0..*" safety_incidents : reporter_id
+  rides "1" --> "0..*" safety_incidents : ride_id

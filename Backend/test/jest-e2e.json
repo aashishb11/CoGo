@@ -1,0 +1,33 @@
+{
+  "moduleFileExtensions": ["js", "mjs", "json", "ts"],
+  "rootDir": "..",
+  "testEnvironment": "node",
+  "testRegex": "test/.*\\.e2e-spec\\.ts$",
+  "extensionsToTreatAsEsm": [".ts"],
+  "transform": {
+    "^.+\\.ts$": [
+      "ts-jest",
+      {
+        "useESM": true,
+        "tsconfig": {
+          "module": "ES2022",
+          "moduleResolution": "node",
+          "resolvePackageJsonExports": false
+        }
+      }
+    ]
+  },
+  "globalSetup": "<rootDir>/test/global-setup.js",
+  "maxWorkers": 1,
+  "testTimeout": 30000,
+  "coverageProvider": "v8",
+  "collectCoverageFrom": ["src/**/*.(t|j)s"],
+  "coverageDirectory": "coverage/e2e",
+  "moduleNameMapper": {
+    "^nestjs-asyncapi$": "<rootDir>/test/mocks/nestjs-asyncapi.ts",
+    "^@core/(.*)$": "<rootDir>/src/core/$1",
+    "^@integrations/(.*)$": "<rootDir>/src/integrations/$1",
+    "^@modules/(.*)$": "<rootDir>/src/modules/$1",
+    "^@shared/(.*)$": "<rootDir>/src/shared/$1"
+  }
+}

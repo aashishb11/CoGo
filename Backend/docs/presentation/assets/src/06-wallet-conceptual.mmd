@@ -1,0 +1,26 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class User {
+    +id: String
+  }
+  class Wallet {
+    +balanceCents: Integer
+    +heldCents: Integer
+    +/availableCents: Integer
+    +payoutStatus: PayoutStatus
+  }
+  class WalletHold {
+    +amountCents: Integer
+    +status: WalletHoldStatus
+  }
+  class Booking {
+    +id: String
+  }
+
+  User "1" --> "0..1" Wallet : owns
+  Wallet "1" --> "0..*" WalletHold : reserves
+  Booking "1" --> "0..*" WalletHold : holdsFor

@@ -1,0 +1,39 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class Organization {
+    +id: String
+    +name: String
+    +domain: String
+  }
+  class User {
+    +id: String
+    +name: String
+    +email: String
+    +image: String
+    +createdAt: DateTime
+  }
+  class Profile {
+    +id: String
+    +username: String
+    +bio: String
+    +phone: String
+    +locale: String
+    +totalCo2Saved: Double
+    +xpPoints: Integer
+    +ridesAsDriver: Integer
+    +ridesAsPassenger: Integer
+    +badges: List~Badge~
+    +/level: Integer
+  }
+  class Badge {
+    +id: String
+    +awardedAt: DateTime
+  }
+
+  Organization "0..1" --> "0..*" User : contains
+  User "1" --> "1" Profile : has
+  Profile "1" --> "0..*" Badge : earns

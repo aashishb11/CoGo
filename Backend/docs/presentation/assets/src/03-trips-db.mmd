@@ -1,0 +1,57 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class car_models {
+    uuid id
+    text brand
+    text name
+    integer year
+    text type
+    double co2_kg_per_km
+  }
+  class cars {
+    uuid id
+    uuid user_id
+    uuid model_id
+    text plate
+    text color
+    integer passenger_seats
+  }
+  class trips {
+    uuid id
+    uuid driver_id
+    uuid car_id
+    text type
+    jsonb schedule
+    timestamp departure_at
+    text origin_label
+    double origin_lat
+    double origin_lng
+    text destination_label
+    double destination_lat
+    double destination_lng
+    integer seats_offered
+    integer price_per_seat_cents
+    double total_distance_km
+    integer estimated_duration_minutes
+    text route_polyline
+    text conversation_style
+    boolean smoke_allowed
+    boolean music_allowed
+    text music_genre
+    text status
+    timestamp cancelled_at
+    text cancellation_reason
+    timestamp archived_at
+  }
+  class user_favorite_trips {
+    uuid user_id
+    uuid trip_id
+  }
+
+  car_models "1" --> "0..*" cars : model_id
+  cars "1" --> "0..*" trips : car_id
+  trips "1" --> "0..*" user_favorite_trips : trip_id

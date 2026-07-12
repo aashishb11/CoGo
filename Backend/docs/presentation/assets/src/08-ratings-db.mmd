@@ -1,0 +1,25 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class users {
+    uuid id
+  }
+  class user_ratings {
+    uuid id
+    uuid ride_id
+    uuid rater_id
+    uuid ratee_id
+    integer score
+    text comment
+    timestamp created_at
+  }
+  class rides {
+    uuid id
+  }
+
+  users "1" --> "0..*" user_ratings : rater_id
+  users "1" --> "0..*" user_ratings : ratee_id
+  rides "1" --> "0..*" user_ratings : ride_id

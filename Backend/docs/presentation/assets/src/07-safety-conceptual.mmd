@@ -1,0 +1,25 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class TrustedContact {
+    +name: String
+    +email: String
+  }
+  class User {
+    +id: String
+  }
+  class SafetyIncident {
+    +category: IncidentCategory
+    +note: String
+    +createdAt: DateTime
+  }
+  class Ride {
+    +id: String
+  }
+
+  User "1" --> "0..1" TrustedContact : trusts
+  User "1" --> "0..*" SafetyIncident : reports
+  Ride "1" --> "0..*" SafetyIncident : flagsOn

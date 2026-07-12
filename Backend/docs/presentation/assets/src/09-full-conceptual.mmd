@@ -1,0 +1,55 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class User
+  class Profile
+  class Organization
+  class Trip { <<abstract>> }
+  class SporadicTrip
+  class RecurringTrip
+  class Car
+  class CarModel
+  class Location
+  class Ride
+  class Booking
+  class TripChatThread
+  class ChatMessage
+  class Wallet
+  class WalletHold
+  class TrustedContact
+  class SafetyIncident
+  class Rating
+
+  Trip <|-- SporadicTrip
+  Trip <|-- RecurringTrip
+
+  Organization "0..1" --> "0..*" User : contains
+  User "1" --> "1" Profile : has
+  User "1" --> "0..1" TrustedContact : trusts
+  User "1" --> "0..1" Wallet : owns
+  User "1" --> "0..*" Car : registers
+  User "1" --> "0..*" Trip : drives
+  User "1" --> "0..*" Booking : books
+
+  CarModel "1" --> "0..*" Car : is a
+  Car "1" --> "0..*" Trip : uses
+  Trip "1" --> "1" Location : origin
+  Trip "1" --> "1" Location : destination
+  Trip "1" --> "1..*" Ride : generates
+  Trip "1" --> "0..*" TripChatThread : hosts
+
+  Ride "1" --> "0..*" Booking : has
+  Ride "1" --> "0..*" SafetyIncident : flagsOn
+  Ride "1" --> "0..*" Rating : context
+  Ride "0..1" --> "0..*" ChatMessage : scopes
+
+  TripChatThread "1" --> "0..*" ChatMessage : contains
+
+  Wallet "1" --> "0..*" WalletHold : reserves
+  Booking "1" --> "0..*" WalletHold : holdsFor
+
+  User "1" --> "0..*" SafetyIncident : reports
+  User "1" --> "0..*" Rating : involvedIn

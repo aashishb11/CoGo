@@ -1,0 +1,44 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class organizations {
+    uuid id
+    text name
+    text domain
+    timestamp created_at
+    timestamp updated_at
+  }
+  class users {
+    uuid id
+    uuid organization_id
+    text email
+    text name
+    boolean email_verified
+    text image
+    text role
+    boolean banned
+    text ban_reason
+    timestamp ban_expires
+    text agenda_feed_token
+    timestamp created_at
+  }
+  class profiles {
+    uuid user_id
+    text username
+    text bio
+    text phone
+    text locale
+    double total_co2_saved
+    integer xp_points
+    integer rides_as_driver
+    integer rides_as_passenger
+    jsonb badges
+    timestamp created_at
+    timestamp updated_at
+  }
+
+  organizations "0..1" --> "0..*" users : organization_id
+  users "1" --> "1" profiles : user_id

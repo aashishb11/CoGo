@@ -1,0 +1,26 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class chat_threads {
+    uuid id
+    uuid trip_id
+    uuid passenger_id
+    timestamp created_at
+    timestamp driver_last_read_at
+    timestamp passenger_last_read_at
+  }
+  class chat_messages {
+    uuid id
+    uuid thread_id
+    uuid sender_id
+    uuid ride_id
+    text body
+    timestamp created_at
+    timestamp deleted_at
+    uuid deleted_by_user_id
+  }
+
+  chat_threads "1" --> "0..*" chat_messages : thread_id

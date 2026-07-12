@@ -1,0 +1,23 @@
+---
+config:
+  layout: elk
+  look: classic
+---
+flowchart LR
+  classDef domain fill:#ffffff,stroke:#2563eb,stroke-width:1.5px,color:#0f172a,rx:8,ry:8;
+  classDef center fill:#dbeafe,stroke:#2563eb,stroke-width:2.5px,color:#0f172a,rx:8,ry:8;
+
+  ID["<b>Identity &amp; Profile</b><br/><span style='color:#64748b;font-size:12px'>User · Profile · Organization</span>"]:::domain
+  TR["<b>Trips &amp; Vehicles</b><br/><span style='color:#64748b;font-size:12px'>Trip · Car · CarModel · Location</span>"]:::domain
+  RB["<b>Rides &amp; Bookings</b><br/><span style='color:#64748b;font-size:12px'>Ride · Booking</span>"]:::center
+  CH["<b>Chat</b><br/><span style='color:#64748b;font-size:12px'>Thread · Message</span>"]:::domain
+  WA["<b>Wallet</b><br/><span style='color:#64748b;font-size:12px'>Wallet · Hold · Transaction</span>"]:::domain
+  SA["<b>Safety</b><br/><span style='color:#64748b;font-size:12px'>TrustedContact · Incident</span>"]:::domain
+  RA["<b>Ratings</b><br/><span style='color:#64748b;font-size:12px'>Rating</span>"]:::domain
+
+  ID --> TR
+  TR --> RB
+  RB --> CH
+  RB --> WA
+  RB --> SA
+  RB --> RA

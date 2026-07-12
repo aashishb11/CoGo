@@ -1,0 +1,47 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class trips {
+    uuid id
+    text status
+  }
+  class rides {
+    uuid id
+    uuid trip_id
+    timestamp scheduled_departure
+    text origin_label
+    double origin_lat
+    double origin_lng
+    text destination_label
+    double destination_lat
+    double destination_lng
+    double total_distance_km
+    text status
+    integer seats_offered
+    integer seats_occupied
+    double actual_co2_saved_kg
+    timestamp started_at
+    boolean flagged_for_review
+    timestamp completed_at
+    timestamp cancelled_at
+    text cancellation_reason
+  }
+  class bookings {
+    uuid id
+    uuid passenger_id
+    uuid ride_id
+    text status
+    text message
+    integer fare_cents
+    timestamp requested_at
+    timestamp accepted_at
+    timestamp rejected_at
+    timestamp cancelled_at
+    timestamp boarded_at
+  }
+
+  trips "1" --> "0..*" rides : trip_id
+  rides "1" --> "0..*" bookings : ride_id

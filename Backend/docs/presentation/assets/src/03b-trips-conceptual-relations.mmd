@@ -1,0 +1,38 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class CarModel {
+    +id: String
+    +brand: String
+    +name: String
+    +year: Integer
+    +type: String
+    +co2KgPerKm: Double
+  }
+  class Car {
+    +id: String
+    +plate: String
+    +color: String
+    +passengerSeats: Integer
+  }
+  class Trip {
+    <<abstract>>
+  }
+  class Origin["Location (origin)"] {
+    +label: String
+    +latitude: Double
+    +longitude: Double
+  }
+  class Destination["Location (destination)"] {
+    +label: String
+    +latitude: Double
+    +longitude: Double
+  }
+
+  CarModel "1" --> "0..*" Car : is a
+  Car "1" --> "0..*" Trip : uses
+  Trip "1" --> "1" Origin : origin
+  Trip "1" --> "1" Destination : destination

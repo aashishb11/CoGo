@@ -1,0 +1,40 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class Trip {
+    <<abstract>>
+    +status: TripStatus
+  }
+  class Ride {
+    +id: String
+    +scheduledDeparture: DateTime
+    +originLabel: String
+    +originLat: Double
+    +originLng: Double
+    +destinationLabel: String
+    +destinationLat: Double
+    +destinationLng: Double
+    +totalDistanceKm: Double
+    +status: RideStatus
+    +seatsOffered: Integer
+    +seatsOccupied: Integer
+    +actualCo2SavedKg: Double
+    +completedAt: DateTime
+    +cancelledAt: DateTime
+    +cancellationReason: String
+  }
+  class Booking {
+    +id: String
+    +status: BookingStatus
+    +message: String
+    +requestedAt: DateTime
+    +acceptedAt: DateTime
+    +rejectedAt: DateTime
+    +cancelledAt: DateTime
+  }
+
+  Trip "1" --> "1..*" Ride : generates
+  Ride "1" --> "0..*" Booking : has

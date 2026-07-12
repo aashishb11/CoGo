@@ -1,0 +1,40 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class wallets {
+    uuid user_id
+    integer balance_cents
+    integer held_cents
+    text stripe_connect_account_id
+    text payout_status
+    timestamp created_at
+    timestamp updated_at
+  }
+  class wallet_transactions {
+    uuid id
+    uuid wallet_id
+    text type
+    text status
+    integer amount_cents
+    uuid booking_id
+    uuid ride_id
+    text stripe_ref
+    text description
+    timestamp created_at
+    timestamp updated_at
+  }
+  class wallet_holds {
+    uuid id
+    uuid wallet_id
+    uuid booking_id
+    integer amount_cents
+    text status
+    timestamp created_at
+    timestamp updated_at
+  }
+
+  wallets "1" --> "0..*" wallet_transactions : wallet_id
+  wallets "1" --> "0..*" wallet_holds : wallet_id

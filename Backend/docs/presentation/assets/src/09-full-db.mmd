@@ -1,0 +1,57 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+  class organizations
+  class users
+  class sessions
+  class accounts
+  class verification
+  class profiles
+  class car_models
+  class cars
+  class trips
+  class rides
+  class bookings
+  class chat_threads
+  class chat_messages
+  class user_favorite_trips
+  class push_subscriptions
+  class wallets
+  class wallet_transactions
+  class wallet_holds
+  class trusted_contacts
+  class safety_incidents
+  class user_ratings
+
+  organizations "0..1" --> "0..*" users
+  users "1" --> "0..*" sessions
+  users "1" --> "0..*" accounts
+  users "1" --> "1" profiles
+  users "1" --> "0..*" cars
+  car_models "1" --> "0..*" cars
+  users "1" --> "0..*" trips : driver
+  cars "1" --> "0..*" trips : car
+  trips "1" --> "0..*" rides
+  rides "1" --> "0..*" bookings
+  users "1" --> "0..*" bookings : passenger
+  trips "1" --> "0..*" chat_threads
+  users "1" --> "0..*" chat_threads : passenger
+  chat_threads "1" --> "0..*" chat_messages
+  users "1" --> "0..*" chat_messages : sender
+  rides "0..1" --> "0..*" chat_messages
+  users "1" --> "0..*" user_favorite_trips
+  trips "1" --> "0..*" user_favorite_trips
+  users "1" --> "0..*" push_subscriptions
+  users "1" --> "0..1" wallets
+  wallets "1" --> "0..*" wallet_transactions
+  wallets "1" --> "0..*" wallet_holds
+  bookings "1" --> "0..*" wallet_holds
+  users "1" --> "0..1" trusted_contacts
+  users "1" --> "0..*" safety_incidents : reporter
+  rides "1" --> "0..*" safety_incidents
+  users "1" --> "0..*" user_ratings : rater
+  users "1" --> "0..*" user_ratings : ratee
+  rides "1" --> "0..*" user_ratings

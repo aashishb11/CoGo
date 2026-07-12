@@ -1,0 +1,31 @@
+---
+config:
+  layout: elk
+---
+classDiagram
+direction TB
+  class Trip {
+    <<abstract>>
+    +id: String
+    +status: TripStatus
+    +seatsOffered: Integer
+    +totalDistanceKm: Double
+    +routePolyline: String
+    +/estimatedCo2SavingsPerSeatKg: Double
+    +conversationStyle: ConversationStyle
+    +smokeAllowed: Boolean
+    +musicAllowed: Boolean
+    +musicGenre: MusicGenre
+  }
+  class SporadicTrip {
+    +departureAt: DateTime
+  }
+  class RecurringTrip {
+    +startDate: Date
+    +endDate: Date
+    +daysOfWeek: Map~DayOfWeek,Boolean~
+    +timeOfDay: Time
+  }
+
+  SporadicTrip --|> Trip
+  RecurringTrip --|> Trip
